@@ -41,10 +41,14 @@ public class Principal {
 		OperacionServiceImpl operacionServiceImpl = new OperacionServiceImpl();
 		
 		try {
-			double resultadoDivision = operacionServiceImpl.dividir(10.0, 0.0);
+			double resultadoDivision = operacionServiceImpl.dividir(10.0, null);
 			System.out.println("Resultado division: " + resultadoDivision);
 		} catch (ArithmeticException e) {
 			System.err.println("Hubo un problema en la division con metodo throws " + e.getMessage());
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			// TODO: handle exception
+			System.err.println("Uno de los valores no se asigno a la operacion " + e.getMessage());
 		}
 	}
 
