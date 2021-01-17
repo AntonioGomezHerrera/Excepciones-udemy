@@ -3,7 +3,9 @@
  */
 package excepciones.PrincipalExcepcion;
 
+import cutomsexceptions.MyException;
 import excepciones.services.OperacionService;
+import excepciones.services.impl.ExceptionServiceImpl;
 import excepciones.services.impl.OperacionServiceImpl;
 
 /**
@@ -49,6 +51,19 @@ public class Principal {
 			e.printStackTrace();
 			// TODO: handle exception
 			System.err.println("Uno de los valores no se asigno a la operacion " + e.getMessage());
+		}
+		
+		
+		// :::::::::::::::::::::: Ejemplo de excepciones personalizadas
+		
+		ExceptionServiceImpl exceptionServiceImpl = new ExceptionServiceImpl();
+		try {
+			exceptionServiceImpl.mostrarExcepcionPerzonalizada(null);
+		} catch (MyException e) {
+			// TODO Auto-generated catch block
+			System.err.println("Entrando a mi excepcion personalizada");
+			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 
